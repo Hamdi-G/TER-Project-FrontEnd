@@ -226,7 +226,7 @@ $_SESSION['connect']=0;
                   window.location.href = "content/";*/
 
                 },
-                beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + sessionStorage.getItem('access_token')); }
+                beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + access_token_); }
               }).fail(function(data, status) {
 
                 alert(status);
