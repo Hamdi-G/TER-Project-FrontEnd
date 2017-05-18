@@ -1,11 +1,15 @@
+<?php
+session_start();// � placer obligatoirement avant tout code HTML.
+$_SESSION['connect']=0;
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0078)http://demos.creative-tim.com/material-dashboard-pro/examples/pages/login.html -->
 <html lang="en" class="perfect-scrollbar-on"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <link rel="apple-touch-icon" sizes="76x76" href="http://demos.creative-tim.com/material-dashboard-pro/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="http://demos.creative-tim.com/material-dashboard-pro/assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="./hello_files/logo_iut.gif">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template</title>
+  <title>Système d'information sur les étudiants</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="viewport" content="width=device-width">
   <!-- Canonical SEO -->
@@ -33,23 +37,23 @@
   <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google&#39;s Material Design.">
   <meta property="og:site_name" content="Creative Tim">
   <!-- Bootstrap core CSS     -->
-  <link href="./login_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
   <!--  Material Dashboard CSS    -->
-  <link href="./login_files/material-dashboard.css" rel="stylesheet">
+  <link href="./css/material-dashboard.css" rel="stylesheet">
   <!--  CSS for Demo Purpose, don't include it in your project     -->
-  <link href="./login_files/demo.css" rel="stylesheet">
+  <link href="./css/demo.css" rel="stylesheet">
   <!--     Fonts and icons     -->
-  <link href="./login_files/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="./login_files/css">
-  <script type="text/javascript" charset="UTF-8" src="./login_files/common.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./login_files/util.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./login_files/stats.js.téléchargement"></script></head>
+  <link href="./css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/css">
+  <script type="text/javascript" charset="UTF-8" src="./js/common.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./js/util.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./js/stats.js.téléchargement"></script></head>
 
   <body cz-shortcut-listen="true">
 
-    <nav class="navbar navbar-primary navbar-transparent navbar-absolute" style="background-color: gray; opacity: 0.6;">
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute" style="background-color: rgba(220, 220, 220, 0.3);">
       <div class="container">
         <div class="navbar-header">
           <img src="img/logo_uns_cmjncopie.png" width="100" height="60" style="float:left;">
-          <div class="navbar-brand" href=" ../dashboard.html " style="font-size:20px;position: absolute; left: 27%;right: 25%;text-align: center;">Systéme d'inforamtion sur les étudiants</div>
+          <div class="navbar-brand" href=" ../dashboard.html " style="font-size:20px;position: absolute; left: 27%;right: 25%;text-align: center; color: white;  font-size: 1.5em; line-height: 2.2em;">Systéme d'inforamtion sur les étudiants</div>
           <img src="img/logo-iut.png" width="70" height="60" style="position: absolute; right: 5%;">
         </div>
       </div>
@@ -123,75 +127,73 @@
       </div>
 
       <!--   Core JS Files   -->
-      <script src="./login_files/jquery-3.1.1.min.js.téléchargement" type="text/javascript"></script>
-      <script src="./login_files/jquery-ui.min.js.téléchargement" type="text/javascript"></script>
-      <script src="./login_files/bootstrap.min.js.téléchargement" type="text/javascript"></script>
-      <script src="./login_files/material.min.js.téléchargement" type="text/javascript"></script>
-      <script src="./login_files/perfect-scrollbar.jquery.min.js.téléchargement" type="text/javascript"></script>
+      <script src="./js/jquery-3.1.1.min.js.téléchargement" type="text/javascript"></script>
+      <script src="./js/jquery-ui.min.js.téléchargement" type="text/javascript"></script>
+      <script src="./js/bootstrap.min.js.téléchargement" type="text/javascript"></script>
+      <script src="./js/material.min.js.téléchargement" type="text/javascript"></script>
+      <script src="./js/perfect-scrollbar.jquery.min.js.téléchargement" type="text/javascript"></script>
       <!-- Forms Validations Plugin -->
-      <script src="./login_files/jquery.validate.min.js.téléchargement"></script>
+      <script src="./js/jquery.validate.min.js.téléchargement"></script>
       <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-      <script src="./login_files/moment.min.js.téléchargement"></script>
+      <script src="./js/moment.min.js.téléchargement"></script>
       <!--  Charts Plugin -->
-      <script src="./login_files/chartist.min.js.téléchargement"></script>
+      <script src="./js/chartist.min.js.téléchargement"></script>
       <!--  Plugin for the Wizard -->
-      <script src="./login_files/jquery.bootstrap-wizard.js.téléchargement"></script>
+      <script src="./js/jquery.bootstrap-wizard.js.téléchargement"></script>
       <!--  Notifications Plugin    -->
-      <script src="./login_files/bootstrap-notify.js.téléchargement"></script>
+      <script src="./js/bootstrap-notify.js.téléchargement"></script>
       <!--   Sharrre Library    -->
-      <script src="./login_files/jquery.sharrre.js.téléchargement"></script>
+      <script src="./js/jquery.sharrre.js.téléchargement"></script>
       <!-- DateTimePicker Plugin -->
-      <script src="./login_files/bootstrap-datetimepicker.js.téléchargement"></script>
+      <script src="./js/bootstrap-datetimepicker.js.téléchargement"></script>
       <!-- Vector Map plugin -->
-      <script src="./login_files/jquery-jvectormap.js.téléchargement"></script>
+      <script src="./js/jquery-jvectormap.js.téléchargement"></script>
       <!-- Sliders Plugin -->
-      <script src="./login_files/nouislider.min.js.téléchargement"></script>
+      <script src="./js/nouislider.min.js.téléchargement"></script>
       <!--  Google Maps Plugin    -->
-      <script src="./login_files/js"></script>
+      <script src="./js/js"></script>
       <!-- Select Plugin -->
-      <script src="./login_files/jquery.select-bootstrap.js.téléchargement"></script>
+      <script src="./js/jquery.select-bootstrap.js.téléchargement"></script>
       <!--  DataTables.net Plugin    -->
-      <script src="./login_files/jquery.datatables.js.téléchargement"></script>
+      <script src="./js/jquery.datatables.js.téléchargement"></script>
       <!-- Sweet Alert 2 plugin -->
-      <script src="./login_files/sweetalert2.js.téléchargement"></script>
+      <script src="./js/sweetalert2.js.téléchargement"></script>
       <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-      <script src="./login_files/jasny-bootstrap.min.js.téléchargement"></script>
+      <script src="./js/jasny-bootstrap.min.js.téléchargement"></script>
       <!--  Full Calendar Plugin    -->
-      <script src="./login_files/fullcalendar.min.js.téléchargement"></script>
+      <script src="./js/fullcalendar.min.js.téléchargement"></script>
       <!-- TagsInput Plugin -->
-      <script src="./login_files/jquery.tagsinput.js.téléchargement"></script>
+      <script src="./js/jquery.tagsinput.js.téléchargement"></script>
       <!-- Material Dashboard javascript methods -->
-      <script src="./login_files/material-dashboard.js.téléchargement"></script>
+      <script src="./js/material-dashboard.js.téléchargement"></script>
       <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-      <script src="./login_files/demo.js.téléchargement"></script>
+      <script src="./js/demo.js.téléchargement"></script>
       <script type="text/javascript">
-      $().ready(function() {
+
+
+
+      $(document).ready(function() {
+
         demo.checkFullPageBackgroundImage();
 
         setTimeout(function() {
           // after 1000 ms we add the class animated to the login/register card
           $('.card').removeClass('card-hidden');
         }, 700)
-      });
 
-
-      $(document).ready(function() {
         // Lorsque je soumets le formulaire
         $('#myForm').on('submit', function(e) {
           e.preventDefault(); // J'empêche le comportement par défaut du navigateur, c-à-d de soumettre le formulaire
 
           var $this = $(this); // L'objet jQuery du formulaire
 
-
           // Je récupère les valeurs
           var pseudo = $('#pseudo').val();
           var password = $('#pwd').val();
 
-          // Je vérifie une première fois pour ne pas lancer la requête HTTP
-          // si je sais que mon PHP renverra une erreur
           // Envoi de la requête HTTP en mode asynchrone
           $.ajax({
-            url: 'http://localhost/myproject/web/app_dev.php/oauth/v2/token',
+            url: 'http://localhost/TER-Project-BackEnd/web/app_dev.php/oauth/v2/token',
             type: 'POST',
             data: {
               grant_type : 'password',
@@ -200,25 +202,42 @@
               username : pseudo,
               password : password
             },
-
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader("Authorization", "Bearer $token")
-            },
             dataType: "json",
             success: function(response) {
-              console.log(response);
-              console.log(response.access_token);
-              sessionStorage.setItem('access_token', response.access_token);
-              //sessionStorage.setItem('id_user',i );
-              window.location.href = "hello.html";
-              tokenGranted();
+
+            var access_token_ = response.access_token;
+
+              $.ajax({
+                url: 'http://localhost/TER-Project-BackEnd/web/app_dev.php/api/teachers',
+                type: 'GET',
+                dataType: "json",
+                success: function(response){
+                  $.ajax({
+                    type: 'POST',
+                    url: 'php/login.php',
+                    data: { user_id: response[0].id, access_token: access_token_},
+                    success: function(response) {
+                      window.location.href = "content/";
+                    }
+                  });
+                  /*
+                  sessionStorage.setItem('user_id',response[0].id);
+                  console.log(sessionStorage.getItem('user_id'));
+                  window.location.href = "content/";*/
+
+                },
+                beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + sessionStorage.getItem('access_token')); }
+              }).fail(function(data, status) {
+
+                alert(status);
+
+              });
             }
-            // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
           }).fail(function(data, status) {
-              $('#error').show();
-              $('#pseudo').val('');
-              $('#pwd').val('');
-              $('#pseudo').focus();
+            $('#error').show();
+            $('#pseudo').val('');
+            $('#pwd').val('');
+            $('#pseudo').focus();
 
           });
 
