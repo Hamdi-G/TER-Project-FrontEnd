@@ -45,7 +45,7 @@ $_SESSION['connect']=0;
   <!--     Fonts and icons     -->
   <link href="./css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/css">
-  <script type="text/javascript" charset="UTF-8" src="./js/common.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./js/util.js.téléchargement"></script><script type="text/javascript" charset="UTF-8" src="./js/stats.js.téléchargement"></script></head>
+</head>
 
   <body cz-shortcut-listen="true">
 
@@ -110,7 +110,7 @@ $_SESSION['connect']=0;
                       </div>
                     </div>
                     <div class="footer text-center">
-                      <button type="submit" class="btn btn-info btn-simple btn-wd btn-lg">Connexion</button>
+                      <button id="connect" type="submit" class="btn btn-info btn-simple btn-wd btn-lg">Connexion</button>
                     </div>
                   </div>
                 </form>
@@ -190,6 +190,7 @@ $_SESSION['connect']=0;
           // Je récupère les valeurs
           var pseudo = $('#pseudo').val();
           var password = $('#pwd').val();
+          $("#connect").attr("disabled", true);
 
           // Envoi de la requête HTTP en mode asynchrone
           $.ajax({
@@ -212,18 +213,24 @@ $_SESSION['connect']=0;
                 type: 'GET',
                 dataType: "json",
                 success: function(response){
+                  let user_id_;
+                  let admin_ = 0;
+                  for (var i = 0; i < response.length; i++) {
+                    if (response[i].login == pseudo && response[i].passwd == password) {
+                      user_id_ = response[i].id;
+                      if (response[i].admin == 1) {
+                        admin_ = 1;
+                      }
+                    }
+                  }
                   $.ajax({
                     type: 'POST',
                     url: 'php/login.php',
-                    data: { user_id: response[0].id, access_token: access_token_},
+                    data: { user_id: user_id_,admin: admin_, access_token: access_token_},
                     success: function(response) {
                       window.location.href = "content/";
                     }
                   });
-                  /*
-                  sessionStorage.setItem('user_id',response[0].id);
-                  console.log(sessionStorage.getItem('user_id'));
-                  window.location.href = "content/";*/
 
                 },
                 beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + access_token_); }
@@ -238,6 +245,7 @@ $_SESSION['connect']=0;
             $('#pseudo').val('');
             $('#pwd').val('');
             $('#pseudo').focus();
+            $("#connect").attr("disabled", false);
 
           });
 

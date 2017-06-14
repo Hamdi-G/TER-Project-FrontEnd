@@ -4,6 +4,8 @@ if (isset($_SESSION['access_token']))
 {$access_token=$_SESSION['access_token'];}
 if (isset($_SESSION['user_id']))
 {$user_id=$_SESSION['user_id'];}
+if (isset($_SESSION['admin']))
+{$admin=$_SESSION['admin'];}
 if (isset($_SESSION['connect']))
 {$connect=$_SESSION['connect'];}
 else
@@ -53,12 +55,18 @@ if ($connect == "1")
   <link href="../hello_files/demo.css" rel="stylesheet">
   <!--     Fonts and icons     -->
   <link href="../hello_files/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../hello_files/css">
-  <script type="text/javascript" charset="UTF-8" src="../hello_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="../hello_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="../hello_files/stats.js"></script><script type="text/javascript" charset="UTF-8" src="../hello_files/AuthenticationService.Authenticate"></script></head>
+  <link rel="stylesheet"  href="../hello_files/css.css">
+  <script src="../hello_files/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="../assets/js/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+  <script src="../plugins/spinner/g-spinner.js"></script>
+    <link href="../plugins/spinner/gspinner.css" rel="stylesheet">
+  </head>
 
   <body cz-shortcut-listen="true">
     <div class="wrapper">
-      <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../../assets/img/sidebar-1.jpg">
+      <div id="loader"></div>
+      <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../assets/img/sidebar.jpg">
         <!--
         Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
         Tip 2: you can also add an image using data-image tag
@@ -143,7 +151,7 @@ if ($connect == "1")
                   <a href="#">infrastructure</a>
                 </li>
                 <li>
-                  <a href="#">utilisateurs</a>
+                  <a href="users.php">utilisateurs</a>
                 </li>
               </ul>
             </div>
