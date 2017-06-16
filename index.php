@@ -45,6 +45,11 @@ $_SESSION['connect']=0;
   <!--     Fonts and icons     -->
   <link href="./css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/css">
+  <script src="./hello_files/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="./assets/js/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/sweetalert2.min.css">
+  <script src="./plugins/spinner/g-spinner.js"></script>
+    <link href="./plugins/spinner/gspinner.css" rel="stylesheet">
 </head>
 
   <body cz-shortcut-listen="true">
@@ -74,6 +79,7 @@ $_SESSION['connect']=0;
 </div>
 </nav>-->
 <div class="wrapper wrapper-full-page">
+  <div id="loader"></div>
   <div class="full-page login-page" filter-color="black" data-image="../../assets/img/login.jpeg">
     <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
     <div class="content">
@@ -127,7 +133,6 @@ $_SESSION['connect']=0;
       </div>
 
       <!--   Core JS Files   -->
-      <script src="./js/jquery-3.1.1.min.js.téléchargement" type="text/javascript"></script>
       <script src="./js/jquery-ui.min.js.téléchargement" type="text/javascript"></script>
       <script src="./js/bootstrap.min.js.téléchargement" type="text/javascript"></script>
       <script src="./js/material.min.js.téléchargement" type="text/javascript"></script>
@@ -246,6 +251,8 @@ $_SESSION['connect']=0;
             $('#pwd').val('');
             $('#pseudo').focus();
             $("#connect").attr("disabled", false);
+
+            
 
           });
 

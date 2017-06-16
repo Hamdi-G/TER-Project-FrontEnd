@@ -11,7 +11,6 @@
     </nav>
     <p class="copyright pull-right">
       ©
-      <script async="" src="../hello_files/analytics.js">
       document.write(new Date().getFullYear())
       </script>
       <a href="http://www.creative-tim.com/">Creative Tim</a>, made with love for a better web

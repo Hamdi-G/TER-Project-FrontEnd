@@ -1,4 +1,20 @@
+<?php
+session_start();
+if (isset($_SESSION['access_token']))
+{$access_token=$_SESSION['access_token'];}
+if (isset($_SESSION['user_id']))
+{$user_id=$_SESSION['user_id'];}
+if (isset($_SESSION['admin']))
+{$admin=$_SESSION['admin'];}
+if (isset($_SESSION['connect']))
+{$connect=$_SESSION['connect'];}
+else
+{$connect=0;}
+if ($connect == "1" && $admin== "1")
+{
+  ?>
 <?php include("header-menu.php"); ?>
+
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -92,6 +108,7 @@ $(document).ready(function() {
       table.on('click', '.edit', function() {
         var data = table.row( $(this).parents('tr') ).data();
         var teacher = findById(response, data.id);
+        var aaa;
 
         swal.setDefaults({
 
@@ -122,6 +139,10 @@ $(document).ready(function() {
                 .text(value.name));
               }
             });
+              aaa = $("#swal-input1").val();
+              console.log(aaa);
+
+
           }
         })
 
@@ -160,13 +181,14 @@ $(document).ready(function() {
             '<select id="module5"></select>' +
             '<label for="module6">Module 6: </label>' +
             '<select id="module6"></select>'
-
           }
         ]
 
-        swal.queue(steps).then(function (result) {
+        swal.queue(steps).then(function () {
           swal.resetDefaults();
-          console.log(result);
+
+          console.log(aaa);
+
           swal({
             title: 'All done!',
             html:
@@ -248,3 +270,11 @@ $(document).ready(function() {
 });
 </script>
 </body></html>
+<?php
+}
+else
+{
+header('Location: ../');
+exit();
+}
+?>

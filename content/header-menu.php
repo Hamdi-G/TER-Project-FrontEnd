@@ -1,18 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['access_token']))
-{$access_token=$_SESSION['access_token'];}
-if (isset($_SESSION['user_id']))
-{$user_id=$_SESSION['user_id'];}
-if (isset($_SESSION['admin']))
-{$admin=$_SESSION['admin'];}
-if (isset($_SESSION['connect']))
-{$connect=$_SESSION['connect'];}
-else
-{$connect=0;}
-if ($connect == "1")
-{
-  ?>
 <!DOCTYPE html>
 <!-- saved from url=(0077)http://demos.creative-tim.com/material-dashboard-pro/examples/pages/user.html -->
 <html lang="en" class="perfect-scrollbar-on"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -109,7 +94,7 @@ if ($connect == "1")
         </div>
         <ul class="nav">
           <li>
-            <a href="#">
+            <a href="index.php">
               <i class="material-icons">dashboard</i>
               <p>Accueil</p>
             </a>
@@ -120,24 +105,31 @@ if ($connect == "1")
               <p>Notes et resultats</p>
             </a>
           </li>
+          <?php
+          if ($admin == "1") { ?>
           <li>
             <a href="follow.php">
               <i class="material-icons">dashboard</i>
               <p>Suivi des diplômés</p>
             </a>
           </li>
+
           <li>
             <a href="absence.php">
               <i class="material-icons">dashboard</i>
               <p>Déclarations d’absences</p>
             </a>
           </li>
+            <?php } ?>
+
           <li>
             <a href="catching.php">
               <i class="material-icons">dashboard</i>
               <p>Demandes de rattrapages</p>
             </a>
           </li>
+          <?php
+          if ($admin == "1") { ?>
           <li>
             <a data-toggle="collapse" href="#pagesExamples" aria-expanded="false">
               <i class="material-icons">image</i>
@@ -156,15 +148,12 @@ if ($connect == "1")
               </ul>
             </div>
           </li>
-          <li>
-            <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
+          <?php } ?>
+
+
         </ul>
         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 587px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 331px;"></div></div></div>
-        <div class="sidebar-background" style="background-image: url(../../assets/img/sidebar-1.jpg) "></div></div>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar.jpg) "></div></div>
         <div class="main-panel ps-container ps-theme-default ps-active-y" data-ps-id="44b814e0-342e-b1a5-dc65-f4bf3c25a075">
           <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
@@ -197,12 +186,3 @@ if ($connect == "1")
                 </div>
               </div>
             </nav>
-
-            <?php
-          }
-          else
-          {
-            header('Location: ../');
-            exit();
-          }
-          ?>
