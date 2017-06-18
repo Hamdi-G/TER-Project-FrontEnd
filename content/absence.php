@@ -92,6 +92,7 @@ $(document).ready(function() {
           { "mData": "endd" },
           { mData: "state",
           "render": function(mData){
+            console.log(mData);
             if (mData == 0) {
               return '<span class="label label-warning">non verifiée</span>'
             }else if (mData == 1) {
