@@ -23,7 +23,7 @@ if ($connect == "1")
             <i class="material-icons">assignment</i>
           </div>
           <div class="card-content">
-            <h4 class="card-title">DataTables.net</h4>
+            <h4 class="card-title">Demandes de rattrapages</h4>
             <div class="toolbar">
               <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
@@ -147,7 +147,7 @@ table.on('click', '.view', function() {
     width: 700,
     text: "You won't be able to revert this!",
     html:
-    '<img src="../assets/img/placeholder.jpg" class="img-circle" width="80" height="80">'+
+    '<img src="../assets/img/hamdi.jpg" class="img-circle" width="80" height="80">'+
     '<p><h6><label class="col-sm-3 label-on-left">Nom de famille:</label></h6>' + catchingrequest.absence.student.lastname +
     '<h6><label class="col-sm-3 label-on-left">Prénom:</label></h6>' + catchingrequest.absence.student.firstname +
     '<h6><label class="col-sm-3 label-on-left">Semestre:</label></h6>' + catchingrequest.absence.student.labgroup.semester.name +

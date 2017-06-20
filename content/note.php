@@ -23,7 +23,7 @@ if ($connect == "1")
               <i class="material-icons">assignment</i>
             </div>
             <div class="card-content">
-              <h4 class="card-title">DataTables.net</h4>
+              <h4 class="card-title">Notes</h4>
               <div class="toolbar">
 
                 <div class="btn-group">
@@ -38,7 +38,6 @@ if ($connect == "1")
                   <select id="module-select" class="selectpicker" data-style="btn btn-success btn-round" title="Choisir Module" data-live-search="true"></select>
                 </div>
 
-                <button id="refresh" class="btn btn-primary btn-round btn-fab btn-fab-mini" style="float: right;"><i class="material-icons">save</i></button>
 
               </div>
               <div class="material-datatables">
@@ -182,15 +181,14 @@ if ($connect == "1")
         type: 'GET',
         dataType: "json",
         success: function(response){
-          console.log('response',response);
           students = response;
           $.ajax({
             url: 'http://localhost/TER-Project-BackEnd/web/app_dev.php/api/modules/'+selected_module+'/notes',
             type: 'GET',
             dataType: "json",
             success: function(response){
-             notes = response;
-             //console.log(notes);
+              notes = response;
+              //console.log(notes);
 
               if (notes) {
                 for (var i = 0; i < students.length; i++) {
@@ -230,20 +228,15 @@ if ($connect == "1")
                     success: function(response){
                       for (var i = 0; i < students.length; i++) {
                         if (students[i].id == student.id) {
-                            students[i].note = note_;
+                          students[i].note = note_;
                         }
                       }
-
-
-
-
                       swal({
                         type : "success",
                         title : "Enregistré avec succes",
                         timer: 1000,
                         onClose: function() {
                           loadTable(students);
-
                         }
                       });
 
@@ -257,10 +250,7 @@ if ($connect == "1")
                     })
                   });
                 } else {
-                  console.log('plan b');
                   var datapost = JSON.stringify({"note" : note_ ,"student": student.id, "module": selected_module});
-                  //console.log(datapost);
-
                   $.ajax({
                     url: 'http://localhost/TER-Project-BackEnd/web/app_dev.php/api/notes',
                     type : 'POST',
@@ -268,11 +258,10 @@ if ($connect == "1")
                     contentType: 'application/json',
                     data : datapost,
                     success: function(response){
-
                       for (var i = 0; i < students.length; i++) {
                         if (students[i].id == student.id) {
-                            students[i].note = note_;
-                            students[i]["note_id"] = response.id;
+                          students[i].note = note_;
+                          students[i]["note_id"] = response.id;
                         }
                       }
                       swal({
@@ -281,10 +270,8 @@ if ($connect == "1")
                         timer: 1000,
                         onClose: function() {
                           loadTable(students);
-
                         }
                       });
-
                     },
                     beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + '<?php echo $access_token; ?>'); }
                   }).fail(function(data, status) {
@@ -294,11 +281,6 @@ if ($connect == "1")
                       showCloseButton: true
                     })
                   });
-
-
-
-
-
                 }
               });
 
@@ -312,7 +294,6 @@ if ($connect == "1")
               window.location = './';
             }
           });
-
         },
         beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + '<?php echo $access_token; ?>'); }
       }).fail(function(data) {
@@ -371,7 +352,7 @@ if ($connect == "1")
 
         }
       },
-      {"defaultContent": "<a class='btn btn-simple btn-rose btn-icon save'><i class='material-icons'>save</i></a>"}
+      {"defaultContent": "<a class='btn btn-simple btn-primary btn-icon save' style='color: #030301 !important'><i class='material-icons'>save</i></a>"}
     ]
   });
 } else {
@@ -379,13 +360,7 @@ if ($connect == "1")
   $('#datatables tbody').empty();
   loadTable(data);
 }
-
 }
-
-
-
-
-
 });
 
 </script>

@@ -58,12 +58,12 @@
         Tip 3: you can change the color of the sidebar with data-background-color="white | black"
       -->
       <div class="logo">
-        <a href="http://www.creative-tim.com/" class="simple-text">
+        <a href="#" class="simple-text">
           Système d'information <br> sur les étudiants
         </a>
       </div>
       <div class="logo logo-mini">
-        <a href="http://www.creative-tim.com/" class="simple-text">
+        <a href="#" class="simple-text">
           SIE
         </a>
       </div>
@@ -73,17 +73,17 @@
             <img src="../hello_files/avatar.jpg">
           </div>
           <div class="info">
-            <a id="pseudo" data-toggle="collapse" href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/user.html#collapseExample" class="collapsed">
+            <a id="pseudo" data-toggle="collapse" href="#collapseExample" class="collapsed">
 
 
             </a>
             <div class="collapse" id="collapseExample">
               <ul class="nav">
                 <li>
-                  <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/user.html#">My Profile</a>
+                  <a href="#">My Profile</a>
                 </li>
                 <li>
-                  <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/user.html#">Edit Profile</a>
+                  <a href="#">Edit Profile</a>
                 </li>
                 <li>
                   <a href="#" onclick="location.href='../php/logout.php';">Déconnection</a>
@@ -100,10 +100,22 @@
             </a>
           </li>
           <li>
-            <a href="note-result.php">
-              <i class="material-icons">dashboard</i>
-              <p>Notes et resultats</p>
+            <a data-toggle="collapse" href="#pagesExample" aria-expanded="false">
+              <i class="material-icons">image</i>
+              <p>Notes & resultats
+                <b class="caret"></b>
+              </p>
             </a>
+            <div class="collapse" id="pagesExample">
+              <ul class="nav">
+                <li>
+                  <a href="note.php">Notes</a>
+                </li>
+                <li>
+                  <a href="result.php">Resultats</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <?php
           if ($admin == "1") { ?>
